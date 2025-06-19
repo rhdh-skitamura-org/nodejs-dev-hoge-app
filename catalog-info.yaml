@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: nodejs-dev-hoge
+  links:
+    - url: https://openshift-gitops-server-openshift-gitops.apps.rosa.sb1237-rosa.b20c.p3.openshiftapps.com/applications/openshift-gitops/nodejs-dev-hoge-dev
+      title: ArgoCD
+      icon: dashboard
+    - url: https://nodejs-dev-hoge-nodejs-dev-hoge.apps.rosa.sb1237-rosa.b20c.p3.openshiftapps.com
+      title: Application
+      icon: dashboard
+    - url: https://github.com/rhdh-skitamura-org/nodejs-dev-hoge-app
+      title: App Repository
+      icon: dashboard
+    - url: https://github.com/rhdh-skitamura-org/nodejs-dev-hoge-manifest
+      title: Manifest Repository
+    - url: https://devspaces.apps.rosa.sb1237-rosa.b20c.p3.openshiftapps.com/#https://github.com/rhdh-skitamura-org/nodejs-dev-hoge-app
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+    - url: https://console-openshift-console.apps.rosa.sb1237-rosa.b20c.p3.openshiftapps.com/k8s/ns/nodejs-dev-hoge/tekton.dev~v1~Pipeline/nodejs-dev-hoge-pipeline
+      title: Tekton Pipelines
+      icon: dashboard
+  annotations:
+    janus-idp.io/tekton: nodejs-dev-hoge
+    janus-idp.io/tekton-enabled: "true"
+    github.com/project-slug: rhdh-skitamura-org/nodejs-dev-hoge-app
+    quay.io/repository-slug: skitamura-quay-org/nodejs-dev-hoge/nodejs-dev-hoge
+    argocd/app-selector: argocd.argoproj.io/instance=nodejs-dev-hoge-bootstrap
+    tektonci/build-namespace: nodejs-dev-hoge
+    backstage.io/kubernetes-id: nodejs-dev-hoge
+    backstage.io/kubernetes-namespace: nodejs-dev-hoge
+    backstage.io/techdocs-ref: url:https://github.com/rhdh-skitamura-org/rhdh-nodejs-goldenpath
+    sonarqube.org/project-key: nodejs-dev-hoge
+    jira/project-key: SMS
+    backstage.io/createdAt: 6/19/2025, 7:17:20 AM
+  labels: {}
+spec:
+  type: service
+  system: system:default/test-system-github
+  lifecycle: production
+  owner: user:default/skitamura7446
+  git: github
+  git_host_url: github.com
+  git_owner_name: rhdh-skitamura-org
+  providesApis:
+    - nodejs-dev-hoge-api
